@@ -6,10 +6,8 @@ mongoose
       process.env.DB_USER_PASS +
       "@diwane.d8vjs.mongodb.net/diwane",
     {
-      /*  useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false, */
+      useNewUrlParser: true,
+      useUnifiedTopology: true,      
     }
   )
   .then(() => console.log("Connected to MongoDB"))
