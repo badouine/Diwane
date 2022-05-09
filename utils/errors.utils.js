@@ -1,5 +1,5 @@
 module.exports.signUpErrors = (err) => {
-    let errors = { tel, email: "", password: "" };
+    let errors = { email: "", password: "" };
   
     if (err.message.includes("tel"))
       errors.tel = "numero deja enregistre par un  autre";
