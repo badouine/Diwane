@@ -15,3 +15,29 @@ module.exports.userInfo = (req, res) => {
       else console.log("ID unknown : " + err);
     }).select("-password");
   };
+
+
+module.exports.updateUser = async (req, res) => {
+    if (!ObjectID.isValid(req.params.id))
+      return res.status(400).send("ID unknown : " + req.params.id);
+  
+    try {
+      await UserModel.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          $set: {
+            tel: req.body.tel,
+          },
+        },
+        { new: true, upsert: true, setDefaultsOnInsert: true },
+        (err, docs) => {
+          if (!err) 
+            return res.send(docs);
+          else 
+            return res.status(500).send({ message: err.message || "Some error occurred while updating the user " });
+        }
+      );
+    } catch (err) {
+      return res.status(500).json({ message: err });
+    }
+  };

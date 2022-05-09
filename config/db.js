@@ -7,7 +7,9 @@ mongoose
       "@diwane.d8vjs.mongodb.net/diwane",
     {
       useNewUrlParser: true,
-      useUnifiedTopology: true,      
+      useUnifiedTopology: true, 
+      useCreateIndex: true,
+      useFindAndModify: false,      
     }
   )
   .then(() => console.log("Connected to MongoDB"))

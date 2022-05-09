@@ -8,6 +8,8 @@ router.post('/register', authController.signUp);
 // info user
 router.get('/', userController.getAllUsers);
 router.get('/:id', userController.userInfo);
+router.put("/:id", userController.updateUser);
+
 
 
 
