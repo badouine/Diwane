@@ -17,10 +17,11 @@ module.exports.uploadProfil = async(req, res) => {
             if(req.file.size > 500000) throw Error('max size');
     } catch (err) {
         const errors = uploadErrors(err)
-        return res.status(201).json(err);
+        return res.status(201).json({errors});
     }
 
     const fileName = req.body.name + ".jpg";
+
     await pipeline(
         req.file.stream,
         fs.createWriteStream(
