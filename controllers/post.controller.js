@@ -12,6 +12,7 @@ module.exports.readPost= (req, res) => {
 module.exports.createPost = async (req, res) => {
     const newPost = new PostModel({
         posterId: req.body.posterId,
+        tel: req.body.tel,
         message: req.body.message,
         video: req.body.video
     });
@@ -30,7 +31,8 @@ module.exports.updatePost = (req, res) => {
       return res.status(400).send("ID Unknown:" + req.params.id);
   
     const updatedRecord = {
-      message: req.body.message,
+      tel: req.body.tel,
+      message: req.body.message
     };
   
     PostModel.findByIdAndUpdate(

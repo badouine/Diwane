@@ -11,6 +11,10 @@ const PostSchema = new mongoose.Schema(
       trim: true,
       maxlength: 500,
     },
+    tel:{
+      type: Number,
+      required: true
+    },
     picture: {
       type: String,
     },
