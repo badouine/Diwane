@@ -1,4 +1,4 @@
-const { sign } = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const UserModel = require('../models/user.model');
 const { signUpErrors, signInErrors } = require('../utils/errors.utils');
 
