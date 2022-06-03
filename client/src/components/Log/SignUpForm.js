@@ -103,8 +103,8 @@ const SignUpForm = () => {
           <br />
           <input
             type="password-conf"
-            name="password"
-            id="password"
+            name="password-conf"
+            id="password-conf"
             onChange={(e) => setControlPassword(e.target.value)}
             value={controlPassword}
           />
