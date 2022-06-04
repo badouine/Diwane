@@ -21,10 +21,10 @@ const Thread = () => {
   return (
     <div className="thread-container">
         <ul>
-            {!isEmpty(posts[0] && 
+            {!isEmpty(posts[0]) && 
                 posts.map((post) => {
                     return <li> {post._id} </li>;
-                })    
+                }    
             )}
         </ul>
     </div>
