@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {getPosts} from '../actions/post.actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { isEmpty } from './Utils';
 
 
 const Thread = () => {
     const [loadPost, setLoadPost] = useState(true);
     const dispatch = useDispatch();
-
+    const posts = useSelector((state) => state.postReducer);
     
     useEffect(() =>{
     
@@ -18,7 +19,15 @@ const Thread = () => {
             }, [loadPost, dispatch]);
 
   return (
-    <div>Thread</div>
+    <div className="thread-container">
+        <ul>
+            {!isEmpty(posts[0] && 
+                posts.map((post) => {
+                    return <li> {post._id} </li>;
+                })    
+            )}
+        </ul>
+    </div>
   )
 }
 
